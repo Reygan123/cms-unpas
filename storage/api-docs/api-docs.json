@@ -1,0 +1,826 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Fakultas",
+        "description": "Dokumentasi API PMB Universitas Pasundan",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/fakultas": {
+            "get": {
+                "tags": [
+                    "Fakultas"
+                ],
+                "operationId": "61e244185641bbfd4b561f3cacfe92b3",
+                "responses": {
+                    "200": {
+                        "description": "The data"
+                    }
+                }
+            }
+        },
+        "/api/departement": {
+            "get": {
+                "tags": [
+                    "Departement"
+                ],
+                "operationId": "d748fecde96ceb8c4948194622d40a25",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Departement"
+                    }
+                }
+            }
+        },
+        "/api/departement/{slug}": {
+            "get": {
+                "tags": [
+                    "Departement"
+                ],
+                "operationId": "26d5f56b6b2d6816b878e8c65437f8a9",
+                "responses": {
+                    "200": {
+                        "description": "Get One Data Departement by Slug"
+                    }
+                }
+            }
+        },
+        "/api/unggulan": {
+            "get": {
+                "tags": [
+                    "USP"
+                ],
+                "operationId": "28c8aa4007fb93a09ac217bdf9112c09",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Unggulan"
+                    }
+                }
+            }
+        },
+        "/api/unggulan-home": {
+            "get": {
+                "tags": [
+                    "USP"
+                ],
+                "operationId": "41ba03552d9657685662a9690f35b295",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Unggulan By Home"
+                    }
+                }
+            }
+        },
+        "/api/unggulan/{id}": {
+            "get": {
+                "tags": [
+                    "USP"
+                ],
+                "operationId": "a64e33def61ba28c27cb1078b948774c",
+                "responses": {
+                    "200": {
+                        "description": "Get All By Departement ID"
+                    }
+                }
+            }
+        },
+        "/api/prospek": {
+            "get": {
+                "tags": [
+                    "Prospek"
+                ],
+                "operationId": "be36f518d68cf74146e9522ca0b78d68",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Prospek"
+                    }
+                }
+            }
+        },
+        "/api/prospek-home": {
+            "get": {
+                "tags": [
+                    "Prospek"
+                ],
+                "operationId": "23466bc83e7f5622595e352079d89b20",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Prospek By Home"
+                    }
+                }
+            }
+        },
+        "/api/prospek/{id}": {
+            "get": {
+                "tags": [
+                    "Prospek"
+                ],
+                "operationId": "2bece85319cba9477332ae936d09c4cc",
+                "responses": {
+                    "200": {
+                        "description": "Get All By Departement ID"
+                    }
+                }
+            }
+        },
+        "/api/kurikulum": {
+            "get": {
+                "tags": [
+                    "Kurikulum"
+                ],
+                "operationId": "24eb5af86ff62e324361d54a76b17f7e",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Kurikulum"
+                    }
+                }
+            }
+        },
+        "/api/kurikulum-home": {
+            "get": {
+                "tags": [
+                    "Kurikulum"
+                ],
+                "operationId": "46382f45e342dfa0434e15a2ab6b57f3",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Kurikulum By Home"
+                    }
+                }
+            }
+        },
+        "/api/kurikulum/{id}": {
+            "get": {
+                "tags": [
+                    "Kurikulum"
+                ],
+                "operationId": "fcd4d66f70c29ba9d73381433a396625",
+                "responses": {
+                    "200": {
+                        "description": "Get All By Departement ID"
+                    }
+                }
+            }
+        },
+        "/api/fasilitas": {
+            "get": {
+                "tags": [
+                    "Fasilitas"
+                ],
+                "operationId": "2c3fd56dae7c128a897c41f61fef0785",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Fasilitas"
+                    }
+                }
+            }
+        },
+        "/api/fasilitas-home": {
+            "get": {
+                "tags": [
+                    "Fasilitas"
+                ],
+                "operationId": "6af393009b506a7c51973b3264b85767",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Fasilitas by Home"
+                    }
+                }
+            }
+        },
+        "/api/fasilitas/{id}": {
+            "get": {
+                "tags": [
+                    "Fasilitas"
+                ],
+                "operationId": "293eaca9d156964dd97af06cd25f9a71",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Fasilitas By Id Departmenet"
+                    }
+                }
+            }
+        },
+        "/api/prestasi": {
+            "get": {
+                "tags": [
+                    "Prestasi"
+                ],
+                "operationId": "bfcab062c895fad809797c014c1e19db",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Prestasi"
+                    }
+                }
+            }
+        },
+        "/api/prestasi-home": {
+            "get": {
+                "tags": [
+                    "Prestasi"
+                ],
+                "operationId": "3097c10689ecf07b0bf7cb3d0bb7e451",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Prestasi By Home"
+                    }
+                }
+            }
+        },
+        "/api/prestasi/{id}": {
+            "get": {
+                "tags": [
+                    "Prestasi"
+                ],
+                "operationId": "7386773cd30c87a33b178f6739f4c8a0",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Prestasi By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/organisasi": {
+            "get": {
+                "tags": [
+                    "Organisasi"
+                ],
+                "operationId": "bc30f6f864df615faa5af76955a65191",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Organisasi"
+                    }
+                }
+            }
+        },
+        "/api/organisasi-home": {
+            "get": {
+                "tags": [
+                    "Organisasi"
+                ],
+                "operationId": "bc76df90e282a91b98ef2fd776e41a0a",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Organisasi By Home"
+                    }
+                }
+            }
+        },
+        "/api/organisasi/{id}": {
+            "get": {
+                "tags": [
+                    "Organisasi"
+                ],
+                "operationId": "51c421bfbabb99810d13eec7faeae8a2",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Organisasi By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/testimoni": {
+            "get": {
+                "tags": [
+                    "Testimoni"
+                ],
+                "operationId": "079b633d8f632eb7d946c31f6c91ddef",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Testimoni"
+                    }
+                }
+            }
+        },
+        "/api/testimoni-home": {
+            "get": {
+                "tags": [
+                    "Testimoni"
+                ],
+                "operationId": "ed744568335e8af4c3f04de22f304d38",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Testimoni By Home"
+                    }
+                }
+            }
+        },
+        "/api/testimoni/{id}": {
+            "get": {
+                "tags": [
+                    "Testimoni"
+                ],
+                "operationId": "63c9471a5c141e51caebb1251cba3c6e",
+                "parameters": [
+                    {
+                        "name": "ID",
+                        "in": "path",
+                        "description": "Id of the departement",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Testimoni By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/portofolio": {
+            "get": {
+                "tags": [
+                    "Portofolio"
+                ],
+                "operationId": "2d9d363c3844c056803b6d098cfdf084",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Portofolio"
+                    }
+                }
+            }
+        },
+        "/api/portofolio-home": {
+            "get": {
+                "tags": [
+                    "Portofolio"
+                ],
+                "operationId": "c44ec65014259322274dd141ccc54371",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Portofolio By Home"
+                    }
+                }
+            }
+        },
+        "/api/portofolio/{id}": {
+            "get": {
+                "tags": [
+                    "Portofolio"
+                ],
+                "operationId": "e52c20f52242a916c6fb38cfd5fbb5fa",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Portofolio By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/suport": {
+            "get": {
+                "tags": [
+                    "Sopport"
+                ],
+                "operationId": "d5c4ab98222bdbcfd29c3a09b6f19ac2",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Suport"
+                    }
+                }
+            }
+        },
+        "/api/suport-home": {
+            "get": {
+                "tags": [
+                    "Sopport"
+                ],
+                "operationId": "9860c00130dca8c2de628af7fa281493",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Suport By Home"
+                    }
+                }
+            }
+        },
+        "/api/suport/{id}": {
+            "get": {
+                "tags": [
+                    "Sopport"
+                ],
+                "operationId": "c464a078d720008919e8031e70af3b87",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Suport By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/faqs": {
+            "get": {
+                "tags": [
+                    "Faqs"
+                ],
+                "operationId": "2b7d8f715f89e4ce4968bc82685ae7d1",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Faqs"
+                    }
+                }
+            }
+        },
+        "/api/post": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "operationId": "3382b18c1b61a0fd9b12496279a1fdf2",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Post"
+                    }
+                }
+            }
+        },
+        "/api/post/{slug}": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "operationId": "588910786af9137e809228f5614460e8",
+                "responses": {
+                    "200": {
+                        "description": "Get One Data POST by Slug"
+                    }
+                }
+            }
+        },
+        "/api/agenda": {
+            "get": {
+                "tags": [
+                    "Agenda"
+                ],
+                "operationId": "c40c16092397f9ccfd69f0082bf13542",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Agenda"
+                    }
+                }
+            }
+        },
+        "/api/agenda/{slug}": {
+            "get": {
+                "tags": [
+                    "Agenda"
+                ],
+                "operationId": "33110a8ed5dcb3d317775d45e191e06d",
+                "responses": {
+                    "200": {
+                        "description": "Get One Data AGENDA by Slug"
+                    }
+                }
+            }
+        },
+        "/api/team": {
+            "get": {
+                "tags": [
+                    "Our Team"
+                ],
+                "operationId": "94eddde781f08012c134da55482441ec",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Ourteam"
+                    }
+                }
+            }
+        },
+        "/api/team-home": {
+            "get": {
+                "tags": [
+                    "Our Team"
+                ],
+                "operationId": "f85c6ebd67a73bec18f9523df52cc9f1",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Ourteam By Home"
+                    }
+                }
+            }
+        },
+        "/api/team/{id}": {
+            "get": {
+                "tags": [
+                    "Our Team"
+                ],
+                "operationId": "92c411bfad503ac11a43935a641ec795",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Ourteam By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/legalitas": {
+            "get": {
+                "tags": [
+                    "Legalitas"
+                ],
+                "operationId": "f5723f71344f1d3870a2be8ac485a7fb",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Legalitas Dokumen"
+                    }
+                }
+            }
+        },
+        "/api/legalitas-home": {
+            "get": {
+                "tags": [
+                    "Legalitas"
+                ],
+                "operationId": "1548a8e73df691b3cadc0a226d51c44b",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Legalitas By Home"
+                    }
+                }
+            }
+        },
+        "/api/legalitas/{id}": {
+            "get": {
+                "tags": [
+                    "Legalitas"
+                ],
+                "operationId": "a6bb7bae0d7023784fbf8409e5fe6ebc",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Legalitas By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/partner": {
+            "get": {
+                "tags": [
+                    "Partners"
+                ],
+                "operationId": "eb0583bd3263261b5e82a9943331c118",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data partner Dokumen"
+                    }
+                }
+            }
+        },
+        "/api/partner-home": {
+            "get": {
+                "tags": [
+                    "Partners"
+                ],
+                "operationId": "50e75ef609324cdd4f211da7eaf8879e",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data partner By Home"
+                    }
+                }
+            }
+        },
+        "/api/partner/{id}": {
+            "get": {
+                "tags": [
+                    "Partners"
+                ],
+                "operationId": "e4e6e169ebecb1fab62093ca394448ab",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data partner By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/indentity": {
+            "get": {
+                "tags": [
+                    "Identity"
+                ],
+                "operationId": "da93111795699e9fdbea8033f48f7405",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data indentity one"
+                    }
+                }
+            }
+        },
+        "/api/slider": {
+            "get": {
+                "tags": [
+                    "Sliders"
+                ],
+                "operationId": "40e49d291ea50b90df05c65f4d333ffa",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data slider Dokumen"
+                    }
+                }
+            }
+        },
+        "/api/slider-home": {
+            "get": {
+                "tags": [
+                    "Sliders"
+                ],
+                "operationId": "e2202d6a1c0ea7af40682bbf72db12a3",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data slider By Home"
+                    }
+                }
+            }
+        },
+        "/api/slider/{id}": {
+            "get": {
+                "tags": [
+                    "Sliders"
+                ],
+                "operationId": "382e30fa39992d363cbd8797cd69f1ed",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data slider By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/analytics": {
+            "get": {
+                "tags": [
+                    "Analytics"
+                ],
+                "operationId": "4004b69a242c51eb667c73ed895def20",
+                "responses": {
+                    "200": {
+                        "description": "Get analytics"
+                    }
+                }
+            }
+        },
+        "/api/jurnal": {
+            "get": {
+                "tags": [
+                    "Jurnal"
+                ],
+                "operationId": "6d85ddfe8522eba03dc03a4030147dea",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Jurnal"
+                    }
+                }
+            }
+        },
+        "/api/jurnal-home": {
+            "get": {
+                "tags": [
+                    "Jurnal"
+                ],
+                "operationId": "7beb4a074e9ca178f51dd0a4e64a2e94",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Jurnal By Home"
+                    }
+                }
+            }
+        },
+        "/api/jurnal/{id}": {
+            "get": {
+                "tags": [
+                    "Jurnal"
+                ],
+                "operationId": "fe88d84f80e35e30a3676447a1dc2414",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Jurnal By Id Departement"
+                    }
+                }
+            }
+        },
+        "/api/timeline": {
+            "get": {
+                "tags": [
+                    "Timeline"
+                ],
+                "operationId": "816d362fac30192f7157803d9a0fa308",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Timeline"
+                    }
+                }
+            }
+        },
+        "/api/timeline-home": {
+            "get": {
+                "tags": [
+                    "Timeline"
+                ],
+                "operationId": "303a977b22dfc4f68de16336d373e596",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Timeline By Home"
+                    }
+                }
+            }
+        },
+        "/api/timeline/{id}": {
+            "get": {
+                "tags": [
+                    "Timeline"
+                ],
+                "operationId": "076fa88a4287e3428d3b51686efc80f5",
+                "responses": {
+                    "200": {
+                        "description": "Get All Data Timeline By Id Departement"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Fakultas",
+            "description": "Fakultas"
+        },
+        {
+            "name": "Departement",
+            "description": "Departement"
+        },
+        {
+            "name": "USP",
+            "description": "USP"
+        },
+        {
+            "name": "Prospek",
+            "description": "Prospek"
+        },
+        {
+            "name": "Kurikulum",
+            "description": "Kurikulum"
+        },
+        {
+            "name": "Fasilitas",
+            "description": "Fasilitas"
+        },
+        {
+            "name": "Prestasi",
+            "description": "Prestasi"
+        },
+        {
+            "name": "Organisasi",
+            "description": "Organisasi"
+        },
+        {
+            "name": "Testimoni",
+            "description": "Testimoni"
+        },
+        {
+            "name": "Portofolio",
+            "description": "Portofolio"
+        },
+        {
+            "name": "Sopport",
+            "description": "Sopport"
+        },
+        {
+            "name": "Faqs",
+            "description": "Faqs"
+        },
+        {
+            "name": "Post",
+            "description": "Post"
+        },
+        {
+            "name": "Agenda",
+            "description": "Agenda"
+        },
+        {
+            "name": "Our Team",
+            "description": "Our Team"
+        },
+        {
+            "name": "Legalitas",
+            "description": "Legalitas"
+        },
+        {
+            "name": "Partners",
+            "description": "Partners"
+        },
+        {
+            "name": "Identity",
+            "description": "Identity"
+        },
+        {
+            "name": "Sliders",
+            "description": "Sliders"
+        },
+        {
+            "name": "Analytics",
+            "description": "Analytics"
+        },
+        {
+            "name": "Jurnal",
+            "description": "Jurnal"
+        },
+        {
+            "name": "Timeline",
+            "description": "Timeline"
+        }
+    ]
+}
