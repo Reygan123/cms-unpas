@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('academic_service_portals', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_sistem');
+            $table->string('alamat_url')->nullable();
+            $table->text('deskripsi')->nullable();
+            $table->text('fungsi')->nullable(); // satu baris per item, newline-separated
+            $table->string('icon')->nullable();
+            $table->integer('urutan')->default(0);
+            $table->enum('status', ['aktif', 'segera_hadir'])->default('aktif');
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('academic_service_portals');
+    }
+};

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\FakultasAPIController;
+use App\Http\Controllers\Api\AcademicAPIController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -111,3 +112,52 @@ Route::get('/timeline/{id}', [FakultasAPIController::class, 'getTimelineByDepart
 
 // timeline
 Route::get('/side-baner', [FakultasAPIController::class, 'getSideBanner'])->name('getSideBanner');
+
+Route::get('/akademik/kompetensi-lulusan', [AcademicAPIController::class, 'getKompetensiLulusan'])->name('getKompetensiLulusan');
+ 
+// CPL (Learning Outcomes) per prodi
+Route::get('/akademik/cpl/{slug}', [AcademicAPIController::class, 'getCplByDepartement'])->name('getCplByDepartement');
+ 
+// Kurikulum per prodi
+Route::get('/akademik/kurikulum/{slug}', [AcademicAPIController::class, 'getCurriculumByDepartement'])->name('getCurriculumByDepartement');
+Route::get('/akademik/kurikulum/{slug}/aktif', [AcademicAPIController::class, 'getCurriculumActiveByDepartement'])->name('getCurriculumActiveByDepartement');
+ 
+// Laboratorium per prodi
+Route::get('/akademik/laboratorium/{slug}', [AcademicAPIController::class, 'getLaboratoriumByDepartement'])->name('getLaboratoriumByDepartement');
+ 
+// Alumni per prodi (support query ?angkatan=)
+Route::get('/akademik/alumni/{slug}', [AcademicAPIController::class, 'getAlumniByDepartement'])->name('getAlumniByDepartement');
+ 
+// Tracer Study per prodi
+Route::get('/akademik/tracer-study/{slug}', [AcademicAPIController::class, 'getTracerStudyByDepartement'])->name('getTracerStudyByDepartement');
+ 
+// Akreditasi — PENTING: route tanpa parameter didaftarkan SEBELUM yang single-segment
+// agar tidak ambigu; di sini aman karena "akreditasi" (all) dan "akreditasi/{slug}" beda jumlah segmen.
+Route::get('/akademik/akreditasi', [AcademicAPIController::class, 'getAkreditasiAll'])->name('getAkreditasiAll');
+Route::get('/akademik/akreditasi/{slug}', [AcademicAPIController::class, 'getAkreditasiByDepartement'])->name('getAkreditasiByDepartement');
+ 
+// Program Perkuliahan (Study Mode) — 4 data tetap: reguler/hybrid/pjj/fast-track
+Route::get('/akademik/program-perkuliahan', [AcademicAPIController::class, 'getProgramPerkuliahanAll'])->name('getProgramPerkuliahanAll');
+Route::get('/akademik/program-perkuliahan/{slug}', [AcademicAPIController::class, 'getProgramPerkuliahanSlug'])->name('getProgramPerkuliahanSlug');
+ 
+// Biaya Pendidikan (support query ?tahun_akademik= ?departement= ?jenjang= ?jenis_program= ?semester=)
+Route::get('/akademik/biaya-pendidikan', [AcademicAPIController::class, 'getBiayaPendidikan'])->name('getBiayaPendidikan');
+ 
+// Pengumuman / Papan Pengumuman (support query ?kategori= ?tahun= ?search=)
+Route::get('/akademik/pengumuman', [AcademicAPIController::class, 'getPengumumanAll'])->name('getPengumumanAll');
+Route::get('/akademik/pengumuman/{slug}', [AcademicAPIController::class, 'getPengumumanSlug'])->name('getPengumumanSlug');
+ 
+// Kalender Akademik (agenda dengan flag is_academic_calendar, support query ?bulan= ?tahun= ?kategori=)
+Route::get('/akademik/kalender', [AcademicAPIController::class, 'getKalenderAkademik'])->name('getKalenderAkademik');
+ 
+// Buku Panduan Akademik
+Route::get('/akademik/panduan', [AcademicAPIController::class, 'getPanduanAkademik'])->name('getPanduanAkademik');
+ 
+// Daftar Peraturan Akademik (support query ?sub_kategori= ?status=)
+Route::get('/akademik/peraturan', [AcademicAPIController::class, 'getPeraturanAkademik'])->name('getPeraturanAkademik');
+ 
+// Layanan Akademik & Administrasi (portal eksternal)
+Route::get('/akademik/layanan', [AcademicAPIController::class, 'getLayananAkademik'])->name('getLayananAkademik');
+ 
+// Search agregasi lintas modul akademik
+Route::get('/search-akademik', [AcademicAPIController::class, 'searchAkademik'])->name('searchAkademik');

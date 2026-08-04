@@ -53,6 +53,10 @@ function data() {
     togglePagesSetting() {
       this.isPagesSettingOpen = !this.isPagesSettingOpen
     },
+    isPagesAkademikOpen: false,
+    togglePagesAkademik() {
+      this.isPagesAkademikOpen = !this.isPagesAkademikOpen
+    },
 
 
   

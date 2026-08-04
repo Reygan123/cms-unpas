@@ -46,6 +46,20 @@ use App\Http\Controllers\Setting_menu\IdentityController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\Setting_menu\SideBannerController;
 
+use App\Http\Controllers\AcademicDocumentController;
+use App\Http\Controllers\AcademicServicePortalController;
+use App\Http\Controllers\AccreditationController;
+use App\Http\Controllers\AlumniController;
+use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CurriculumPeriodController;
+use App\Http\Controllers\FacultyCompetencyController;
+use App\Http\Controllers\LaboratoryController;
+use App\Http\Controllers\LearningOutcomeController;
+use App\Http\Controllers\StudyModeController;
+use App\Http\Controllers\TracerStudyController;
+use App\Http\Controllers\TuitionFeeController;
+
 
 Route::get('/login', function () {
     return view('/auth/login');
@@ -55,16 +69,16 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
-    // Route::middleware('auth')->group(function () {
-    //        // 2FA
-    // Route::get('/two-factor', [TwoFactorController::class, 'index'])->name('two-factor.index');
-    // Route::post('/two-factor', [TwoFactorController::class, 'verify'])->name('two-factor.verify'); 
-    // });
+// Route::middleware('auth')->group(function () {
+//        // 2FA
+// Route::get('/two-factor', [TwoFactorController::class, 'index'])->name('two-factor.index');
+// Route::post('/two-factor', [TwoFactorController::class, 'verify'])->name('two-factor.verify'); 
+// });
 
 
 Route::middleware(['auth'])->group(function () {
 
-// dashboard
+    // dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
@@ -172,12 +186,12 @@ Route::middleware(['auth'])->group(function () {
     Route::resources([
         'unggulan' => UnggulanController::class,
     ]);
-    
+
     // prospek
     Route::resources([
         'prospek' => ProspekController::class,
     ]);
-    
+
     // Kurikulum
     Route::resources([
         'kurikulum' => KurikulumController::class,
@@ -247,4 +261,41 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/agenda/{id}/edit', [AgendaController::class, 'edit'])->name('agenda.edit');
     Route::put('/agenda/{id}', [AgendaController::class, 'update'])->name('agenda.update');
     Route::delete('/agenda/{id}/delete', [AgendaController::class, 'destroy'])->name('agenda.delete');
+
+    Route::get('/faculty-competency', [FacultyCompetencyController::class, 'index'])->name('faculty-competency.index');
+    Route::post('/faculty-competency', [FacultyCompetencyController::class, 'store'])->name('faculty-competency.store');
+    Route::put('/faculty-competency/{facultyCompetency}', [FacultyCompetencyController::class, 'update'])->name('faculty-competency.update');
+
+    Route::resource('study-modes', StudyModeController::class)->only(['index', 'edit', 'update']);
+
+    Route::resource('academic-service-portals', AcademicServicePortalController::class)->except(['show']);
+    Route::resource('academic-documents', AcademicDocumentController::class)->except(['show']);
+    Route::resource('announcements', AnnouncementController::class)->except(['show']);
+    Route::patch('/announcements/{announcement}/toggle-pin', [AnnouncementController::class, 'togglePin'])->name('announcements.toggle-pin');
+    Route::resource('accreditations', AccreditationController::class)->except(['show']);
+    Route::resource('tuition-fees', TuitionFeeController::class)->except(['show']);
+
+    Route::resource('departement.learning-outcomes', LearningOutcomeController::class)
+        ->parameters(['learning-outcomes' => 'learningOutcome'])
+        ->except(['show']);
+
+    Route::resource('departement.curriculum-periods', CurriculumPeriodController::class)
+        ->parameters(['curriculum-periods' => 'curriculumPeriod'])
+        ->except(['show']);
+
+    Route::resource('curriculum-periods.courses', CourseController::class)
+        ->parameters(['curriculum-periods' => 'curriculumPeriod', 'courses' => 'course'])
+        ->except(['show']);
+
+    Route::resource('departement.laboratories', LaboratoryController::class)
+        ->parameters(['laboratories' => 'laboratory'])
+        ->except(['show']);
+
+    Route::resource('departement.alumni', AlumniController::class)
+        ->parameters(['alumni' => 'alumnus'])
+        ->except(['show']);
+
+    Route::resource('departement.tracer-studies', TracerStudyController::class)
+        ->parameters(['tracer-studies' => 'tracerStudy'])
+        ->except(['show']);
 });

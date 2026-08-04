@@ -187,109 +187,164 @@
                         class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
                         aria-label="submenu">
 
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \"
-                  >
-                    <a class="w-full"
-                            href="{{ route('ourteam.index') }}">
-                            Our Teams
+                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 \">
+                            <a class="w-full"
+                                href="{{ route('ourteam.index') }}">
+                                Our Teams
                             </a>
                         </li>
                         {{-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
                             <a class="w-full"
                             href="{{ route('dataValue.index') }}">
-                            Data
-                            </a>
-                        </li> --}}
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('legalDocument.index') }}">Legals Document</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('partner.index') }}">Partners</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('timeline.index') }}">Timeline</a>
-                        </li>
-                    </ul>
-                </template>
+                        Data
+                        </a>
+            </li> --}}
+            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <a class="w-full" href="{{ route('legalDocument.index') }}">Legals Document</a>
             </li>
-            <li class="relative px-6 py-3">
-                <button
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black "
-                    @click="togglePagesSetting" @click="isPagesSettingOpen = !isPagesSettingOpen"
-                    :class="{
+            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <a class="w-full" href="{{ route('partner.index') }}">Partners</a>
+            </li>
+            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <a class="w-full" href="{{ route('timeline.index') }}">Timeline</a>
+            </li>
+        </ul>
+        </template>
+        </li>
+        <li class="relative px-6 py-3">
+            <button
+                class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
+                @click="togglePagesAkademik" @click="isPagesAkademikOpen = !isPagesAkademikOpen"
+                :class="{
+                        'bg-[#034833] rounded-lg p-2 text-white': isPagesAkademikOpen,
+                        'hover:bg-gray-200 rounded-lg p-2': !isPagesAkademikOpen
+                    }"
+                aria-haspopup="true">
+                <span class="inline-flex items-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 3L1 9l11 6 9-4.909V17h2V9L12 3z" />
+                        <path d="M5 13.18v4L12 21l7-3.82v-4" />
+                    </svg>
+
+                    <span class="ml-4">Akademik</span>
+                </span>
+                <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <template x-if="isPagesAkademikOpen">
+                <ul x-transition:enter="transition-all ease-in-out duration-300"
+                    x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+                    x-transition:leave="transition-all ease-in-out duration-300"
+                    x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+                    class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
+                    aria-label="submenu">
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('faculty-competency.index') }}">Kompetensi Lulusan</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('study-modes.index') }}">Program Perkuliahan</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('tuition-fees.index') }}">Biaya Pendidikan</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('academic-documents.index') }}">Dokumen Akademik</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('announcements.index') }}">Pengumuman</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('accreditations.index') }}">Akreditasi</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('academic-service-portals.index') }}">Layanan Akademik</a>
+                    </li>
+                </ul>
+            </template>
+        </li>
+        <li class="relative px-6 py-3">
+            <button
+                class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black "
+                @click="togglePagesSetting" @click="isPagesSettingOpen = !isPagesSettingOpen"
+                :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesSettingOpen,
                         'hover:bg-gray-200 rounded-lg p-2': !isPagesSettingOpen
                     }"
-                    aria-haspopup="true">
-                    <span class="inline-flex items-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
-                            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.542-.94 3.41.928 2.47 2.47a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.542-.928 3.41-2.47 2.47a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.542.94-3.41-.928-2.47-2.47a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.542.928-3.41 2.47-2.47.996.608 2.296.07 2.572-1.065z" />
-                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                        <span class="ml-4">Setting</span>
-                    </span>
-                    <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
+                aria-haspopup="true">
+                <span class="inline-flex items-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
+                        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.542-.94 3.41.928 2.47 2.47a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.542-.928 3.41-2.47 2.47a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.542.94-3.41-.928-2.47-2.47a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.542.928-3.41 2.47-2.47.996.608 2.296.07 2.572-1.065z" />
+                        <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                </button>
-                <template x-if="isPagesSettingOpen">
-                    <ul x-transition:enter="transition-all ease-in-out duration-300"
-                        x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
-                        x-transition:leave="transition-all ease-in-out duration-300"
-                        x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
-                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
-                        aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('identity.index') }}">Identity</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            {{-- <a class="w-full"
+                    <span class="ml-4">Setting</span>
+                </span>
+                <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <template x-if="isPagesSettingOpen">
+                <ul x-transition:enter="transition-all ease-in-out duration-300"
+                    x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+                    x-transition:leave="transition-all ease-in-out duration-300"
+                    x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+                    class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
+                    aria-label="submenu">
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('identity.index') }}">Identity</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        {{-- <a class="w-full"
                             href="pages/create-account.html">
                             Header
                             </a>
                         </li>
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   > --}}
-                            <a class="w-full" href="{{ route('sideBanner.index') }}">
-                                Side Banner
-                            </a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('slider.index') }}">Slider</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('meta.index') }}">Meta Pixel</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('google.index') }}">Google Analytics</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('chat.index') }}">Welcome Chat</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('users.index') }}">User</a>
-                        </li>
-                    </ul>
-                </template>
-            </li>
+                        <a class="w-full" href="{{ route('sideBanner.index') }}">
+                            Side Banner
+                        </a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('slider.index') }}">Slider</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('meta.index') }}">Meta Pixel</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('google.index') }}">Google Analytics</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('chat.index') }}">Welcome Chat</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('users.index') }}">User</a>
+                    </li>
+                </ul>
+            </template>
+        </li>
 
-            <li class="relative px-6 py-3">
-                <div class="bg-gray-100 p-3 rounded-2xl text-xs flex flex-col items-center justify-center gap-3">
-                    <img src="{{ asset('assets/icons/out.svg') }}" alt="logout" class="w-28">
-                    <span class="font-bold">Apa kamu ingin keluar?</span>
-                    <form id="logout-form" method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" id="logout-btn"
-                            class="w-full px-4 py-2 text-white hover:bg-red-700 bg-red-500 rounded-md">
-                            Logout
-                        </button>
-                    </form>
-                </div>
-            </li>
+        <li class="relative px-6 py-3">
+            <div class="bg-gray-100 p-3 rounded-2xl text-xs flex flex-col items-center justify-center gap-3">
+                <img src="{{ asset('assets/icons/out.svg') }}" alt="logout" class="w-28">
+                <span class="font-bold">Apa kamu ingin keluar?</span>
+                <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" id="logout-btn"
+                        class="w-full px-4 py-2 text-white hover:bg-red-700 bg-red-500 rounded-md">
+                        Logout
+                    </button>
+                </form>
+            </div>
+        </li>
         </ul>
     </div>
 </aside>
@@ -370,222 +425,277 @@
                   >
                     <a class="w-full"
                             href="{{ route('register.index') }}">
-                            Registration
-                            </a>
-                        </li> --}}
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('unggulan.index') }}">USP</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('prospek.index') }}">Prospek</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('kurikulum.index') }}">Kurikulum</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('fasilitas.index') }}">Facilities</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('achievement.index') }}">Achievement</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('organization.index') }}">Student Activities</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('testimoni.index') }}">Testimonies</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('portofolio.index') }}">Inovasi</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('suport.index') }}">Supports</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('faq.index') }}">FAQs</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('jurnal.index') }}">Jurnals</a>
-                        </li>
-                    </ul>
-                </template>
+                        Registration
+                        </a>
+            </li> --}}
+            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <a class="w-full" href="{{ route('unggulan.index') }}">USP</a>
             </li>
-            <li class="relative px-6 py-3">
-                <button
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
-                    @click="togglePagesBlog" @click="isPagesBlogOpen = !isPagesBlogOpen"
-                    :class="{
+            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <a class="w-full" href="{{ route('prospek.index') }}">Prospek</a>
+            </li>
+            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <a class="w-full" href="{{ route('kurikulum.index') }}">Kurikulum</a>
+            </li>
+            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <a class="w-full" href="{{ route('fasilitas.index') }}">Facilities</a>
+            </li>
+            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <a class="w-full" href="{{ route('achievement.index') }}">Achievement</a>
+            </li>
+            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <a class="w-full" href="{{ route('organization.index') }}">Student Activities</a>
+            </li>
+            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <a class="w-full" href="{{ route('testimoni.index') }}">Testimonies</a>
+            </li>
+            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <a class="w-full" href="{{ route('portofolio.index') }}">Inovasi</a>
+            </li>
+            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <a class="w-full" href="{{ route('suport.index') }}">Supports</a>
+            </li>
+            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <a class="w-full" href="{{ route('faq.index') }}">FAQs</a>
+            </li>
+            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                <a class="w-full" href="{{ route('jurnal.index') }}">Jurnals</a>
+            </li>
+        </ul>
+        </template>
+        </li>
+        <li class="relative px-6 py-3">
+            <button
+                class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
+                @click="togglePagesBlog" @click="isPagesBlogOpen = !isPagesBlogOpen"
+                :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesBlogOpen,
                         'hover:bg-gray-200 rounded-lg p-2': !isPagesBlogOpen
                     }"
-                    aria-haspopup="true">
-                    <span class="inline-flex items-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
-                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M7 8h10M7 12h6m-6 4h10" />
-                            <path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
-                        </svg>
-                        <span class="ml-4">Blog & Agenda</span>
-                    </span>
-                    <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
+                aria-haspopup="true">
+                <span class="inline-flex items-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M7 8h10M7 12h6m-6 4h10" />
+                        <path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
                     </svg>
-                </button>
-                <template x-if="isPagesBlogOpen">
-                    <ul x-transition:enter="transition-all ease-in-out duration-300"
-                        x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
-                        x-transition:leave="transition-all ease-in-out duration-300"
-                        x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
-                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
-                        aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('posts.index') }}">Post</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('agenda.index') }}">
-                                Agenda
-                            </a>
-                        </li>
-                    </ul>
-                </template>
-            </li>
-            <li class="relative px-6 py-3">
-                <button
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
-                    @click="togglePagesProfil" @click="isPagesProfilOpen = !isPagesProfilOpen"
-                    :class="{
+                    <span class="ml-4">Blog & Agenda</span>
+                </span>
+                <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <template x-if="isPagesBlogOpen">
+                <ul x-transition:enter="transition-all ease-in-out duration-300"
+                    x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+                    x-transition:leave="transition-all ease-in-out duration-300"
+                    x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+                    class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
+                    aria-label="submenu">
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('posts.index') }}">Post</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('agenda.index') }}">
+                            Agenda
+                        </a>
+                    </li>
+                </ul>
+            </template>
+        </li>
+        <li class="relative px-6 py-3">
+            <button
+                class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
+                @click="togglePagesProfil" @click="isPagesProfilOpen = !isPagesProfilOpen"
+                :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesProfilOpen,
                         'hover:bg-gray-200 rounded-lg p-2': !isPagesProfilOpen
                     }"
-                    aria-haspopup="true">
-                    <span class="inline-flex items-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
-                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M15.75 7.5a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-                            <path d="M4.5 20.25a8.25 8.25 0 0115 0" />
-                        </svg>
-
-                        <span class="ml-4">Profil</span>
-                    </span>
-                    <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
+                aria-haspopup="true">
+                <span class="inline-flex items-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M15.75 7.5a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                        <path d="M4.5 20.25a8.25 8.25 0 0115 0" />
                     </svg>
-                </button>
-                <template x-if="isPagesProfilOpen">
-                    <ul x-transition:enter="transition-all ease-in-out duration-300"
-                        x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
-                        x-transition:leave="transition-all ease-in-out duration-300"
-                        x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
-                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
-                        aria-label="submenu">
-                        {{-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+
+                    <span class="ml-4">Profil</span>
+                </span>
+                <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <template x-if="isPagesProfilOpen">
+                <ul x-transition:enter="transition-all ease-in-out duration-300"
+                    x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+                    x-transition:leave="transition-all ease-in-out duration-300"
+                    x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+                    class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
+                    aria-label="submenu">
+                    {{-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="pages/login.html">About Us</a>
                         </li> --}}
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('ourteam.index') }}">
-                                Our Teams
-                            </a>
-                        </li>
-                       
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
-                  >
-                    <a class="w-full"
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('ourteam.index') }}">
+                            Our Teams
+                        </a>
+                    </li>
+
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full"
                             href="{{ route('legalDocument.index') }}">Legals Document</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('partner.index') }}">Partners</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('timeline.index') }}">Timeline</a>
-                        </li>
-                    </ul>
-                </template>
-            </li>
-            <li class="relative px-6 py-3">
-                <button
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black "
-                    @click="togglePagesSetting" @click="isPagesSettingOpen = !isPagesSettingOpen"
-                    :class="{
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('partner.index') }}">Partners</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('timeline.index') }}">Timeline</a>
+                    </li>
+                </ul>
+            </template>
+        </li>
+        <li class="relative px-6 py-3">
+            <button
+                class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
+                @click="togglePagesAkademik" @click="isPagesAkademikOpen = !isPagesAkademikOpen"
+                :class="{
+                        'bg-[#034833] rounded-lg p-2 text-white': isPagesAkademikOpen,
+                        'hover:bg-gray-200 rounded-lg p-2': !isPagesAkademikOpen
+                    }"
+                aria-haspopup="true">
+                <span class="inline-flex items-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 3L1 9l11 6 9-4.909V17h2V9L12 3z" />
+                        <path d="M5 13.18v4L12 21l7-3.82v-4" />
+                    </svg>
+
+                    <span class="ml-4">Akademik</span>
+                </span>
+                <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <template x-if="isPagesAkademikOpen">
+                <ul x-transition:enter="transition-all ease-in-out duration-300"
+                    x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+                    x-transition:leave="transition-all ease-in-out duration-300"
+                    x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+                    class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
+                    aria-label="submenu">
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('faculty-competency.index') }}">Kompetensi Lulusan</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('study-modes.index') }}">Program Perkuliahan</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('tuition-fees.index') }}">Biaya Pendidikan</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('academic-documents.index') }}">Dokumen Akademik</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('announcements.index') }}">Pengumuman</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('accreditations.index') }}">Akreditasi</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('academic-service-portals.index') }}">Layanan Akademik</a>
+                    </li>
+                </ul>
+            </template>
+        </li>
+        <li class="relative px-6 py-3">
+            <button
+                class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black "
+                @click="togglePagesSetting" @click="isPagesSettingOpen = !isPagesSettingOpen"
+                :class="{
                         'bg-[#034833] rounded-lg p-2 text-white': isPagesSettingOpen,
                         'hover:bg-gray-200 rounded-lg p-2': !isPagesSettingOpen
                     }"
-                    aria-haspopup="true">
-                    <span class="inline-flex items-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
-                            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.542-.94 3.41.928 2.47 2.47a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.542-.928 3.41-2.47 2.47a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.542.94-3.41-.928-2.47-2.47a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.542.928-3.41 2.47-2.47.996.608 2.296.07 2.572-1.065z" />
-                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                        <span class="ml-4">Setting</span>
-                    </span>
-                    <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
+                aria-haspopup="true">
+                <span class="inline-flex items-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
+                        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.542-.94 3.41.928 2.47 2.47a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.542-.928 3.41-2.47 2.47a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.542.94-3.41-.928-2.47-2.47a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.542.928-3.41 2.47-2.47.996.608 2.296.07 2.572-1.065z" />
+                        <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                </button>
-                <template x-if="isPagesSettingOpen">
-                    <ul x-transition:enter="transition-all ease-in-out duration-300"
-                        x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
-                        x-transition:leave="transition-all ease-in-out duration-300"
-                        x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
-                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
-                        aria-label="submenu">
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('identity.index') }}">Identity</a>
-                        </li>
-                        {{-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
+                    <span class="ml-4">Setting</span>
+                </span>
+                <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <template x-if="isPagesSettingOpen">
+                <ul x-transition:enter="transition-all ease-in-out duration-300"
+                    x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+                    x-transition:leave="transition-all ease-in-out duration-300"
+                    x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+                    class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
+                    aria-label="submenu">
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('identity.index') }}">Identity</a>
+                    </li>
+                    {{-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800"
                   >
                     <a class="w-full"
                             href="{{ route('fasilitas.index') }}">
-                            Header
-                            </a>
-                        </li> --}}
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('sideBanner.index') }}">
-                                Side Banner
-                            </a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('slider.index') }}">Slider</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('meta.index') }}">Meta Pixel</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('google.index') }}">Google Analytics</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('chat.index') }}">Welcome Chat</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="pages/blank.html">User</a>
-                        </li>
-                    </ul>
-                </template>
-            </li>
+                    Header
+                    </a>
+        </li> --}}
+        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+            <a class="w-full" href="{{ route('sideBanner.index') }}">
+                Side Banner
+            </a>
+        </li>
+        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+            <a class="w-full" href="{{ route('slider.index') }}">Slider</a>
+        </li>
+        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+            <a class="w-full" href="{{ route('meta.index') }}">Meta Pixel</a>
+        </li>
+        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+            <a class="w-full" href="{{ route('google.index') }}">Google Analytics</a>
+        </li>
+        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+            <a class="w-full" href="{{ route('chat.index') }}">Welcome Chat</a>
+        </li>
+        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+            <a class="w-full" href="pages/blank.html">User</a>
+        </li>
+        </ul>
+        </template>
+        </li>
 
-            <li class="relative px-6 py-3">
-                <div class="bg-gray-100 p-3 rounded-2xl text-xs flex flex-col items-center justify-center gap-3">
-                    <img src="{{ asset('assets/icons/out.svg') }}" alt="logout" class="w-28">
-                    <span class="font-bold">Apa kamu ingin keluar?</span>
-                    <form id="logout-form" method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" id="logout-btn"
-                            class="w-full px-4 py-2 text-white hover:bg-red-700 bg-red-500 rounded-md">
-                            Logout
-                        </button>
-                    </form>
-                </div>
-            </li>
+        <li class="relative px-6 py-3">
+            <div class="bg-gray-100 p-3 rounded-2xl text-xs flex flex-col items-center justify-center gap-3">
+                <img src="{{ asset('assets/icons/out.svg') }}" alt="logout" class="w-28">
+                <span class="font-bold">Apa kamu ingin keluar?</span>
+                <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" id="logout-btn"
+                        class="w-full px-4 py-2 text-white hover:bg-red-700 bg-red-500 rounded-md">
+                        Logout
+                    </button>
+                </form>
+            </div>
+        </li>
 
         </ul>
 
@@ -610,7 +720,7 @@
                 confirmButton: 'bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded mr-2',
                 cancelButton: 'bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded',
             },
-            buttonsStyling: false, // <- wajib untuk pakai customClass
+            buttonsStyling: false,
         }).then((result) => {
             if (result.isConfirmed) {
                 document.getElementById('logout-form').submit();
