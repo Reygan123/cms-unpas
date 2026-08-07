@@ -44,7 +44,7 @@ class AlumniController extends Controller
 
         Alumni::create($validated);
 
-        return redirect()->route('alumni.index', $departement->id)
+        return redirect()->route('departement.alumni.index', $departement->id)
             ->with('success', 'Data alumni berhasil ditambahkan.');
     }
 
@@ -75,7 +75,7 @@ class AlumniController extends Controller
 
         $alumnus->update($validated);
 
-        return redirect()->route('alumni.index', $departement->id)
+        return redirect()->route('departement.alumni.index', $departement->id)
             ->with('success', 'Data alumni berhasil diperbarui.');
     }
 
@@ -86,7 +86,7 @@ class AlumniController extends Controller
         }
         $alumnus->delete();
 
-        return redirect()->route('alumni.index', $departement->id)
+        return redirect()->route('departement.alumni.index', $departement->id)
             ->with('success', 'Data alumni berhasil dihapus.');
     }
 }

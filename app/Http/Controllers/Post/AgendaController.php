@@ -33,7 +33,6 @@ class AgendaController extends Controller
 
     public function store(Request $request)
     {
-    //   dd($request->all());
         $validate = $request->validate([
             'title' => 'required|string',
             'start_date' => 'required|date',
@@ -46,13 +45,11 @@ class AgendaController extends Controller
             'contact' => 'required|string',
             'category' => 'required|string',
             'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
-          
         ]);
 
-        // Buat slug otomatis
         $validate['slug'] = Str::slug($validate['title']);
+        $validate['is_academic_calendar'] = $request->boolean('is_academic_calendar');
 
-       
         if($request->file('image')){
             $validate['image'] = $request->file('image')->store('agenda-image', 'public');
         }
@@ -60,7 +57,6 @@ class AgendaController extends Controller
       Agenda::create($validate);
 
       return redirect()->route('agenda.index')->with('success', 'Agenda berhasil dibuat!');
-
     }
 
     public function edit($id)
@@ -89,8 +85,9 @@ class AgendaController extends Controller
         'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-        // Buat slug otomatis
         $validated['slug'] = Str::slug($validated['title']);
+        $validated['is_academic_calendar'] = $request->boolean('is_academic_calendar');
+
     if($request->file('image')){
         $validated['image'] = $request->file('image')->store('agenda-image', 'public');
     }

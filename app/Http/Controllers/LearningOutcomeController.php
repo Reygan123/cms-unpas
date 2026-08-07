@@ -39,7 +39,7 @@ class LearningOutcomeController extends Controller
 
         LearningOutcome::create($validated);
 
-        return redirect()->route('learning-outcomes.index', $departement->id)
+        return redirect()->route('departement.learning-outcomes.index', $departement->id)
             ->with('success', 'CPL berhasil ditambahkan.');
     }
 
@@ -59,7 +59,7 @@ class LearningOutcomeController extends Controller
 
         $learningOutcome->update($validated);
 
-        return redirect()->route('learning-outcomes.index', $departement->id)
+        return redirect()->route('departement.learning-outcomes.index', $departement->id)
             ->with('success', 'CPL berhasil diperbarui.');
     }
 
@@ -67,7 +67,7 @@ class LearningOutcomeController extends Controller
     {
         $learningOutcome->delete();
 
-        return redirect()->route('learning-outcomes.index', $departement->id)
+        return redirect()->route('departement.learning-outcomes.index', $departement->id)
             ->with('success', 'CPL berhasil dihapus.');
     }
 }

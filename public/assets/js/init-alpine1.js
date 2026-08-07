@@ -57,8 +57,10 @@ function data() {
     togglePagesAkademik() {
       this.isPagesAkademikOpen = !this.isPagesAkademikOpen
     },
-
-
+    isPagesKemahasiswaanOpen: false,
+    togglePagesKemahasiswaan() {
+      this.isPagesKemahasiswaanOpen = !this.isPagesKemahasiswaanOpen
+    },
   
 
     // Modal

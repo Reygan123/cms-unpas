@@ -7,6 +7,7 @@ use App\Models\AcademicDocument;
 use App\Models\AcademicServicePortal;
 use App\Models\Accreditation;
 use App\Models\Alumni;
+use App\Models\Alumnus;
 use App\Models\Announcement;
 use App\Models\Course;
 use App\Models\CurriculumPeriod;
@@ -240,6 +241,22 @@ class AcademicAPIController extends Controller
             ->get();
 
         return response()->json($data);
+    }
+
+    public function downloadAcademicDocument($id)
+    {
+        $document = AcademicDocument::find($id);
+        if (! $document || ! $document->file) {
+            return response()->json(['message' => 'resource not found'], 404);
+        }
+
+        if (! \Illuminate\Support\Facades\Storage::disk('public')->exists($document->file)) {
+            return response()->json(['message' => 'file not found'], 404);
+        }
+
+        $filename = \Illuminate\Support\Str::slug($document->judul).'.'.pathinfo($document->file, PATHINFO_EXTENSION);
+
+        return \Illuminate\Support\Facades\Storage::disk('public')->download($document->file, $filename);
     }
 
     public function getLayananAkademik()

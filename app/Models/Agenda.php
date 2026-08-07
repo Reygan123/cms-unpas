@@ -11,7 +11,6 @@ class Agenda extends Model
 
     protected $table = 'agendas';
 
-
     protected $fillable = [
         'title',
         'slug',
@@ -25,5 +24,10 @@ class Agenda extends Model
         'contact',
         'category',
         'image',
+        'is_academic_calendar',
+    ];
+
+    protected $casts = [
+        'is_academic_calendar' => 'boolean',
     ];
 }

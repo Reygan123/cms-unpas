@@ -37,7 +37,7 @@ class TracerStudyController extends Controller
 
         TracerStudy::create($validated);
 
-        return redirect()->route('tracer-studies.index', $departement->id)
+        return redirect()->route('departement.tracer-studies.index', $departement->id)
             ->with('success', 'Data tracer study berhasil ditambahkan.');
     }
 
@@ -57,7 +57,7 @@ class TracerStudyController extends Controller
 
         $tracerStudy->update($validated);
 
-        return redirect()->route('tracer-studies.index', $departement->id)
+        return redirect()->route('departement.tracer-studies.index', $departement->id)
             ->with('success', 'Data tracer study berhasil diperbarui.');
     }
 
@@ -65,7 +65,7 @@ class TracerStudyController extends Controller
     {
         $tracerStudy->delete();
 
-        return redirect()->route('tracer-studies.index', $departement->id)
+        return redirect()->route('departement.tracer-studies.index', $departement->id)
             ->with('success', 'Data tracer study berhasil dihapus.');
     }
 }

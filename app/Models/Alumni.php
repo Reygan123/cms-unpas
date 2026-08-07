@@ -12,8 +12,8 @@ class Alumni extends Model
     protected $table = 'alumni';
 
     protected $fillable = [
-        'id_departement', 'nama', 'foto', 'angkatan', 'tahun_lulus',
-        'profesi', 'perusahaan', 'cerita_sukses', 'home',
+        'id_departement', 'nama', 'email', 'no_hp', 'foto', 'angkatan', 'tahun_lulus',
+        'profesi', 'perusahaan', 'cerita_sukses', 'alamat', 'home',
     ];
 
     public function departement()

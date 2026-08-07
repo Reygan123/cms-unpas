@@ -49,7 +49,7 @@ class CurriculumPeriodController extends Controller
 
         CurriculumPeriod::create($validated);
 
-        return redirect()->route('curriculum-periods.index', $departement->id)
+        return redirect()->route('departement.curriculum-periods.index', $departement->id)
             ->with('success', 'Periode kurikulum berhasil ditambahkan.');
     }
 
@@ -85,7 +85,7 @@ class CurriculumPeriodController extends Controller
 
         $curriculumPeriod->update($validated);
 
-        return redirect()->route('curriculum-periods.index', $departement->id)
+        return redirect()->route('departement.curriculum-periods.index', $departement->id)
             ->with('success', 'Periode kurikulum berhasil diperbarui.');
     }
 
@@ -96,7 +96,7 @@ class CurriculumPeriodController extends Controller
         }
         $curriculumPeriod->delete(); // courses ikut terhapus via cascadeOnDelete di migration
 
-        return redirect()->route('curriculum-periods.index', $departement->id)
+        return redirect()->route('departement.curriculum-periods.index', $departement->id)
             ->with('success', 'Periode kurikulum berhasil dihapus.');
     }
 }

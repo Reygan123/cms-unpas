@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\FakultasAPIController;
 use App\Http\Controllers\Api\AcademicAPIController;
+use App\Http\Controllers\Api\StudentAffairsAPIController;
+use App\Http\Controllers\Api\PengabdianAPIController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -125,6 +127,9 @@ Route::get('/akademik/kurikulum/{slug}/aktif', [AcademicAPIController::class, 'g
 // Laboratorium per prodi
 Route::get('/akademik/laboratorium/{slug}', [AcademicAPIController::class, 'getLaboratoriumByDepartement'])->name('getLaboratoriumByDepartement');
  
+// Semua data alumni lintas prodi (support query ?angkatan= ?tahun_lulus= ?prodi=)
+Route::get('/akademik/alumni', [AcademicAPIController::class, 'getAlumniAll'])->name('getAlumniAll');
+
 // Alumni per prodi (support query ?angkatan=)
 Route::get('/akademik/alumni/{slug}', [AcademicAPIController::class, 'getAlumniByDepartement'])->name('getAlumniByDepartement');
  
@@ -161,3 +166,41 @@ Route::get('/akademik/layanan', [AcademicAPIController::class, 'getLayananAkadem
  
 // Search agregasi lintas modul akademik
 Route::get('/search-akademik', [AcademicAPIController::class, 'searchAkademik'])->name('searchAkademik');
+
+// Kehidupan Kampus
+Route::get('/kemahasiswaan/kegiatan', [StudentAffairsAPIController::class, 'getCampusActivities'])->name('getCampusActivities');
+Route::get('/kemahasiswaan/kegiatan/{slug}', [StudentAffairsAPIController::class, 'getCampusActivitySlug'])->name('getCampusActivitySlug');
+
+// Prestasi Mahasiswa (support query ?kategori= ?tingkat= ?tahun= ?prodi=)
+Route::get('/kemahasiswaan/prestasi', [StudentAffairsAPIController::class, 'getStudentAchievements'])->name('getStudentAchievements');
+Route::post('/kemahasiswaan/prestasi', [StudentAffairsAPIController::class, 'storeStudentAchievement'])->name('storeStudentAchievement');
+
+// Organisasi Kemahasiswaan
+Route::get('/ormawa', [StudentAffairsAPIController::class, 'getOrmawaAll'])->name('getOrmawaAll');
+Route::get('/ormawa/{slug}', [StudentAffairsAPIController::class, 'getOrmawaSlug'])->name('getOrmawaSlug');
+Route::get('/ormawa/{slug}/pengurus', [StudentAffairsAPIController::class, 'getOrmawaPengurus'])->name('getOrmawaPengurus');
+Route::get('/ormawa/{slug}/program-kerja', [StudentAffairsAPIController::class, 'getOrmawaProgramKerja'])->name('getOrmawaProgramKerja');
+Route::get('/ormawa/{slug}/berita', [StudentAffairsAPIController::class, 'getOrmawaBerita'])->name('getOrmawaBerita');
+Route::get('/ormawa/{slug}/galeri', [StudentAffairsAPIController::class, 'getOrmawaGaleri'])->name('getOrmawaGaleri');
+Route::get('/ormawa/{slug}/dokumen', [StudentAffairsAPIController::class, 'getOrmawaDokumen'])->name('getOrmawaDokumen');
+
+// Career and Development Center
+Route::get('/cdc/magang', [StudentAffairsAPIController::class, 'getInternships'])->name('getInternships');
+Route::get('/cdc/lowongan', [StudentAffairsAPIController::class, 'getJobVacancies'])->name('getJobVacancies');
+Route::get('/cdc/webinar', [StudentAffairsAPIController::class, 'getCareerEvents'])->name('getCareerEvents');
+Route::post('/cdc/review-request', [StudentAffairsAPIController::class, 'storeCvReviewRequest'])->name('storeCvReviewRequest');
+Route::get('/cdc/alumni-networking', [StudentAffairsAPIController::class, 'getAlumniNetworking'])->name('getAlumniNetworking');
+Route::get('/cdc/tracer-study-partisipasi', [StudentAffairsAPIController::class, 'getTracerStudyPartisipasi'])->name('getTracerStudyPartisipasi');
+
+// ToKang Kampus
+Route::get('/tokang-kampus', [StudentAffairsAPIController::class, 'getTokangKampus'])->name('getTokangKampus');
+
+// Alumni
+Route::get('/alumni', [StudentAffairsAPIController::class, 'getAlumniAll'])->name('getAlumniAllStudentAffairs');
+Route::get('/ika-ft', [StudentAffairsAPIController::class, 'getIkaFt'])->name('getIkaFt');
+Route::post('/alumni/perbarui-data', [StudentAffairsAPIController::class, 'storeAlumniUpdate'])->name('storeAlumniUpdate');
+
+// Pengabdian Masyarakat (support query ?kategori= ?prodi= ?search=)
+Route::get('/pengabdian', [PengabdianAPIController::class, 'getPengabdianAll'])->name('getPengabdianAll');
+Route::get('/pengabdian/{slug}', [PengabdianAPIController::class, 'getPengabdianSlug'])->name('getPengabdianSlug');
+Route::get('/pengabdian-kategori', [PengabdianAPIController::class, 'getPengabdianKategori'])->name('getPengabdianKategori');

@@ -87,12 +87,10 @@
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
                             <a class="w-full" href="{{ route('fasilitas.index') }}">Facilities</a>
                         </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <!-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
                             <a class="w-full" href="{{ route('achievement.index') }}">Achievement</a>
-                        </li>
-                        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                            <a class="w-full" href="{{ route('organization.index') }}">Student Activities</a>
-                        </li>
+                        </li> -->
+                        
                         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
                             <a class="w-full" href="{{ route('testimoni.index') }}">Testimonies</a>
                         </li>
@@ -263,6 +261,79 @@
                     </li>
                     <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
                         <a class="w-full" href="{{ route('academic-service-portals.index') }}">Layanan Akademik</a>
+                    </li>
+                </ul>
+            </template>
+        </li>
+        <li class="relative px-6 py-3">
+            <button
+                class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
+                @click="togglePagesKemahasiswaan" @click="isPagesKemahasiswaanOpen = !isPagesKemahasiswaanOpen"
+                :class="{
+                        'bg-[#034833] rounded-lg p-2 text-white': isPagesKemahasiswaanOpen,
+                        'hover:bg-gray-200 rounded-lg p-2': !isPagesKemahasiswaanOpen
+                    }"
+                aria-haspopup="true">
+                <span class="inline-flex items-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m5-8.13a4 4 0 110 8 4 4 0 010-8zm6 4a4 4 0 11-8 0" />
+                    </svg>
+
+                    <span class="ml-4">Kemahasiswaan</span>
+                </span>
+                <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <template x-if="isPagesKemahasiswaanOpen">
+                <ul x-transition:enter="transition-all ease-in-out duration-300"
+                    x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+                    x-transition:leave="transition-all ease-in-out duration-300"
+                    x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+                    class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
+                    aria-label="submenu">
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('campus-activities.index') }}">Kehidupan Kampus</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('achievement.index') }}">Prestasi Mahasiswa</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('student-organizations.index') }}">Organisasi Kemahasiswaan</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('internships.index') }}">Informasi Magang</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('job-vacancies.index') }}">Lowongan Kerja</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('career-events.index') }}">Webinar & Pelatihan Karier</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('cv-review-requests.index') }}">Review CV/Portofolio</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('alumni-networking-resources.index') }}">Alumni Networking</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('tracer-study-participations.index') }}">Partisipasi Tracer Study</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('class-representatives.index') }}">ToKang Kampus</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('ika-ft-profile.index') }}">Profil IKA FT</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('alumni-update-submissions.index') }}">Update Data Alumni</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('pengabdian.index') }}">Pengabdian Masyarakat</a>
                     </li>
                 </ul>
             </template>
@@ -440,12 +511,9 @@
             <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
                 <a class="w-full" href="{{ route('fasilitas.index') }}">Facilities</a>
             </li>
-            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+            <!-- <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
                 <a class="w-full" href="{{ route('achievement.index') }}">Achievement</a>
-            </li>
-            <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
-                <a class="w-full" href="{{ route('organization.index') }}">Student Activities</a>
-            </li>
+            </li> -->
             <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
                 <a class="w-full" href="{{ route('testimoni.index') }}">Testimonies</a>
             </li>
@@ -614,6 +682,79 @@
                     </li>
                     <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
                         <a class="w-full" href="{{ route('academic-service-portals.index') }}">Layanan Akademik</a>
+                    </li>
+                </ul>
+            </template>
+        </li>
+        <li class="relative px-6 py-3">
+            <button
+                class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 text-black"
+                @click="togglePagesKemahasiswaan" @click="isPagesKemahasiswaanOpen = !isPagesKemahasiswaanOpen"
+                :class="{
+                        'bg-[#034833] rounded-lg p-2 text-white': isPagesKemahasiswaanOpen,
+                        'hover:bg-gray-200 rounded-lg p-2': !isPagesKemahasiswaanOpen
+                    }"
+                aria-haspopup="true">
+                <span class="inline-flex items-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5"
+                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m5-8.13a4 4 0 110 8 4 4 0 010-8zm6 4a4 4 0 11-8 0" />
+                    </svg>
+
+                    <span class="ml-4">Kemahasiswaan</span>
+                </span>
+                <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <template x-if="isPagesKemahasiswaanOpen">
+                <ul x-transition:enter="transition-all ease-in-out duration-300"
+                    x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+                    x-transition:leave="transition-all ease-in-out duration-300"
+                    x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+                    class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-black rounded-md shadow-inner bg-gray-100  "
+                    aria-label="submenu">
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('campus-activities.index') }}">Kehidupan Kampus</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('achievement.index') }}">Prestasi Mahasiswa</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('student-organizations.index') }}">Organisasi Kemahasiswaan</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('internships.index') }}">Informasi Magang</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('job-vacancies.index') }}">Lowongan Kerja</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('career-events.index') }}">Webinar & Pelatihan Karier</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('cv-review-requests.index') }}">Review CV/Portofolio</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('alumni-networking-resources.index') }}">Alumni Networking</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('tracer-study-participations.index') }}">Partisipasi Tracer Study</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('class-representatives.index') }}">ToKang Kampus</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('ika-ft-profile.index') }}">Profil IKA FT</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('alumni-update-submissions.index') }}">Update Data Alumni</a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('pengabdian.index') }}">Pengabdian Masyarakat</a>
                     </li>
                 </ul>
             </template>

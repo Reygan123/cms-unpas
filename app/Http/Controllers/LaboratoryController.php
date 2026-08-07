@@ -40,7 +40,7 @@ class LaboratoryController extends Controller
 
         Laboratory::create($validated);
 
-        return redirect()->route('laboratories.index', $departement->id)
+        return redirect()->route('departement.laboratories.index', $departement->id)
             ->with('success', 'Laboratorium berhasil ditambahkan.');
     }
 
@@ -69,7 +69,7 @@ class LaboratoryController extends Controller
 
         $laboratory->update($validated);
 
-        return redirect()->route('laboratories.index', $departement->id)
+        return redirect()->route('departement.laboratories.index', $departement->id)
             ->with('success', 'Laboratorium berhasil diperbarui.');
     }
 
@@ -80,7 +80,7 @@ class LaboratoryController extends Controller
         }
         $laboratory->delete();
 
-        return redirect()->route('laboratories.index', $departement->id)
+        return redirect()->route('departement.laboratories.index', $departement->id)
             ->with('success', 'Laboratorium berhasil dihapus.');
     }
 }

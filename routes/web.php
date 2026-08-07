@@ -60,6 +60,24 @@ use App\Http\Controllers\StudyModeController;
 use App\Http\Controllers\TracerStudyController;
 use App\Http\Controllers\TuitionFeeController;
 
+use App\Http\Controllers\CampusActivityController;
+use App\Http\Controllers\StudentAchievementController;
+use App\Http\Controllers\StudentOrganizationController;
+use App\Http\Controllers\OrganizationManagementController;
+use App\Http\Controllers\OrganizationProgramController;
+use App\Http\Controllers\OrganizationGalleryController;
+use App\Http\Controllers\OrganizationDocumentController;
+use App\Http\Controllers\InternshipController;
+use App\Http\Controllers\JobVacancyController;
+use App\Http\Controllers\CareerEventController;
+use App\Http\Controllers\CvReviewRequestController;
+use App\Http\Controllers\AlumniNetworkingResourceController;
+use App\Http\Controllers\TracerStudyParticipationController;
+use App\Http\Controllers\ClassRepresentativeController;
+use App\Http\Controllers\IkaFtProfileController;
+use App\Http\Controllers\AlumniUpdateSubmissionController;
+use App\Http\Controllers\Api\PengabdianAPIController;
+use App\Http\Controllers\PengabdianMasyarakatController;
 
 Route::get('/login', function () {
     return view('/auth/login');
@@ -266,7 +284,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/faculty-competency', [FacultyCompetencyController::class, 'store'])->name('faculty-competency.store');
     Route::put('/faculty-competency/{facultyCompetency}', [FacultyCompetencyController::class, 'update'])->name('faculty-competency.update');
 
-    Route::resource('study-modes', StudyModeController::class)->only(['index', 'edit', 'update']);
+    Route::resource('study-modes', StudyModeController::class)->only(['index', 'edit', 'update', 'create', 'store']);
 
     Route::resource('academic-service-portals', AcademicServicePortalController::class)->except(['show']);
     Route::resource('academic-documents', AcademicDocumentController::class)->except(['show']);
@@ -298,4 +316,48 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('departement.tracer-studies', TracerStudyController::class)
         ->parameters(['tracer-studies' => 'tracerStudy'])
         ->except(['show']);
+
+    Route::resource('campus-activities', CampusActivityController::class)->except(['show']);
+
+    Route::resource('student-achievements', StudentAchievementController::class)->except(['show']);
+    Route::patch('/student-achievements/{studentAchievement}/verify', [StudentAchievementController::class, 'verify'])->name('student-achievements.verify');
+    Route::patch('/student-achievements/{studentAchievement}/reject', [StudentAchievementController::class, 'reject'])->name('student-achievements.reject');
+
+    Route::resource('student-organizations', StudentOrganizationController::class)->except(['show']);
+
+    Route::resource('student-organizations.organization-managements', OrganizationManagementController::class)
+        ->parameters(['organization-managements' => 'organizationManagement'])
+        ->except(['show']);
+
+    Route::resource('student-organizations.organization-programs', OrganizationProgramController::class)
+        ->parameters(['organization-programs' => 'organizationProgram'])
+        ->except(['show']);
+
+    Route::resource('student-organizations.organization-galleries', OrganizationGalleryController::class)
+        ->parameters(['organization-galleries' => 'organizationGallery'])
+        ->only(['index', 'create', 'store', 'destroy']);
+
+    Route::resource('student-organizations.organization-documents', OrganizationDocumentController::class)
+        ->parameters(['organization-documents' => 'organizationDocument'])
+        ->only(['index', 'create', 'store', 'destroy']);
+
+    Route::resource('internships', InternshipController::class)->except(['show']);
+    Route::resource('job-vacancies', JobVacancyController::class)->except(['show']);
+    Route::resource('career-events', CareerEventController::class)->except(['show']);
+
+    Route::resource('cv-review-requests', CvReviewRequestController::class)->only(['index', 'show', 'update', 'destroy']);
+
+    Route::resource('alumni-networking-resources', AlumniNetworkingResourceController::class)->except(['show']);
+    Route::resource('tracer-study-participations', TracerStudyParticipationController::class)->except(['show']);
+    Route::resource('class-representatives', ClassRepresentativeController::class)->except(['show']);
+
+    Route::get('/ika-ft-profile', [IkaFtProfileController::class, 'index'])->name('ika-ft-profile.index');
+    Route::post('/ika-ft-profile', [IkaFtProfileController::class, 'store'])->name('ika-ft-profile.store');
+    Route::put('/ika-ft-profile/{ikaFtProfile}', [IkaFtProfileController::class, 'update'])->name('ika-ft-profile.update');
+
+    Route::get('/alumni-update-submissions', [AlumniUpdateSubmissionController::class, 'index'])->name('alumni-update-submissions.index');
+    Route::patch('/alumni-update-submissions/{alumniUpdateSubmission}/approve', [AlumniUpdateSubmissionController::class, 'approve'])->name('alumni-update-submissions.approve');
+    Route::delete('/alumni-update-submissions/{alumniUpdateSubmission}/delete', [AlumniUpdateSubmissionController::class, 'destroy'])->name('alumni-update-submissions.delete');
+
+    Route::resource('pengabdian', PengabdianMasyarakatController::class)->except(['show']);
 });

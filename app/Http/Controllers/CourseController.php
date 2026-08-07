@@ -42,7 +42,7 @@ class CourseController extends Controller
 
         Course::create($validated);
 
-        return redirect()->route('courses.index', $curriculumPeriod->id)
+        return redirect()->route('curriculum-periods.courses.index', $curriculumPeriod->id)
             ->with('success', 'Mata kuliah berhasil ditambahkan.');
     }
 
@@ -65,7 +65,7 @@ class CourseController extends Controller
 
         $course->update($validated);
 
-        return redirect()->route('courses.index', $curriculumPeriod->id)
+        return redirect()->route('curriculum-periods.courses.index', $curriculumPeriod->id)
             ->with('success', 'Mata kuliah berhasil diperbarui.');
     }
 
@@ -73,7 +73,7 @@ class CourseController extends Controller
     {
         $course->delete();
 
-        return redirect()->route('courses.index', $curriculumPeriod->id)
+        return redirect()->route('curriculum-periods.courses.index', $curriculumPeriod->id)
             ->with('success', 'Mata kuliah berhasil dihapus.');
     }
 }
