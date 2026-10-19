@@ -36,6 +36,8 @@ class PengabdianMasyarakatController extends Controller
             'deskripsi' => 'required|string',
             'gambar_upload' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'gambar_url' => 'nullable|url',
+            'video_upload' => 'nullable|mimes:mp4,webm,ogg,mov|max:51200',
+            'video_url' => 'nullable|string',
             'dosen_penanggung_jawab' => 'nullable|array',
             'dosen_penanggung_jawab.*' => 'nullable|string|max:255',
             'sumber' => 'nullable|url',
@@ -56,8 +58,20 @@ class PengabdianMasyarakatController extends Controller
             $validated['gambar'] = $request->input('gambar_url');
         }
 
+        if ($request->hasFile('video_upload')) {
+            $validated['video'] = $request->file('video_upload')->store('pengabdian-video', 'public');
+        } elseif ($request->filled('video_url')) {
+            $validated['video'] = $request->input('video_url');
+        }
+
         $departementIds = $validated['departement_ids'] ?? [];
-        unset($validated['gambar_upload'], $validated['gambar_url'], $validated['departement_ids']);
+        unset(
+            $validated['gambar_upload'],
+            $validated['gambar_url'],
+            $validated['video_upload'],
+            $validated['video_url'],
+            $validated['departement_ids']
+        );
 
         $pengabdianMasyarakat = PengabdianMasyarakat::create($validated);
         $pengabdianMasyarakat->departements()->sync($departementIds);
@@ -84,6 +98,8 @@ class PengabdianMasyarakatController extends Controller
             'deskripsi' => 'required|string',
             'gambar_upload' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'gambar_url' => 'nullable|url',
+            'video_upload' => 'nullable|mimes:mp4,webm,ogg,mov|max:51200',
+            'video_url' => 'nullable|string',
             'dosen_penanggung_jawab' => 'nullable|array',
             'dosen_penanggung_jawab.*' => 'nullable|string|max:255',
             'sumber' => 'nullable|url',
@@ -105,8 +121,31 @@ class PengabdianMasyarakatController extends Controller
             $validated['gambar'] = $request->input('gambar_url');
         }
 
+        if ($request->boolean('remove_video')) {
+            if ($pengabdian->video && ! Str::startsWith($pengabdian->video, ['http://', 'https://'])
+                && Storage::disk('public')->exists($pengabdian->video)) {
+                Storage::disk('public')->delete($pengabdian->video);
+            }
+            $validated['video'] = null;
+        } elseif ($request->hasFile('video_upload')) {
+            if ($pengabdian->video && ! Str::startsWith($pengabdian->video, ['http://', 'https://'])
+                && Storage::disk('public')->exists($pengabdian->video)) {
+                Storage::disk('public')->delete($pengabdian->video);
+            }
+            $validated['video'] = $request->file('video_upload')->store('pengabdian-video', 'public');
+        } elseif ($request->filled('video_url')) {
+            $validated['video'] = $request->input('video_url');
+        }
+
         $departementIds = $validated['departement_ids'] ?? [];
-        unset($validated['gambar_upload'], $validated['gambar_url'], $validated['departement_ids']);
+        unset(
+            $validated['gambar_upload'],
+            $validated['gambar_url'],
+            $validated['video_upload'],
+            $validated['video_url'],
+            $validated['remove_video'],
+            $validated['departement_ids']
+        );
 
         $pengabdian->update($validated);
         $pengabdian->departements()->sync($departementIds);
@@ -120,6 +159,10 @@ class PengabdianMasyarakatController extends Controller
         if ($pengabdian->gambar && ! Str::startsWith($pengabdian->gambar, ['http://', 'https://'])
             && Storage::disk('public')->exists($pengabdian->gambar)) {
             Storage::disk('public')->delete($pengabdian->gambar);
+        }
+        if ($pengabdian->video && ! Str::startsWith($pengabdian->video, ['http://', 'https://'])
+            && Storage::disk('public')->exists($pengabdian->video)) {
+            Storage::disk('public')->delete($pengabdian->video);
         }
         $pengabdian->delete();
 

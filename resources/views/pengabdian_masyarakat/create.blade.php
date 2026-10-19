@@ -73,6 +73,26 @@
             </div>
         </div>
 
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <div class="md:col-span-2">
+                <span class="block text-sm font-semibold text-gray-800">Media Video (Opsional)</span>
+                <span class="block text-xs text-gray-500">Pilih salah satu: Upload file video (.mp4/.webm) untuk autoplay, ATAU masukkan Link Instagram Reels/Post.</span>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Upload File Video (Autoplay)</label>
+                <input type="file" name="video_upload" accept="video/mp4,video/webm,video/ogg,video/quicktime"
+                    class="block w-full text-sm border-gray-300 rounded-lg focus:border-[#034833] focus:ring focus:ring-[#034833]/20">
+                <p class="mt-1 text-xs text-gray-400">Format: MP4, WebM (Maks. 50MB). Video akan diputar otomatis (loop & muted).</p>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Link Video Instagram / URL</label>
+                <input type="text" name="video_url" value="{{ old('video_url') }}"
+                    placeholder="https://www.instagram.com/reel/... atau https://..."
+                    class="block w-full text-sm border-gray-300 rounded-lg focus:border-[#034833] focus:ring focus:ring-[#034833]/20">
+                <p class="mt-1 text-xs text-gray-400">Link Instagram Reels/Post atau link video online.</p>
+            </div>
+        </div>
+
         <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">Dosen Penanggung Jawab</label>
             <div class="space-y-2">

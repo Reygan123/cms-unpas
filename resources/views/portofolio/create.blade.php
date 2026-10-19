@@ -45,15 +45,43 @@
                             </div>
                         @enderror
                     </div>
-                    <div class="flex flex-col gap-1 mb-5">
-                        <label for="yt">Youtube ID</label>
-                        <input type="text" name="yt" value="{{ old('yt') }}"
-                            class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none focus:shadow-outline-purple form-input border-gray-300 border-2 p-2 rounded-md" />
-                        @error('yt')
+                    <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 mb-5">
+                        <span class="block text-sm font-semibold text-gray-800 mb-1">Media Video Inovasi (Opsional)</span>
+                        <span class="block text-xs text-gray-500 mb-4">Pilih salah satu: Upload file video (.mp4/.webm) untuk autoplay di halaman inovasi, ATAU masukkan Link Instagram Reels/Post.</span>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <small class="text-red-500"><i>{{ $message }}</i></small>
+                                <label for="video_upload" class="text-xs font-semibold text-gray-700">Upload File Video (Autoplay)</label>
+                                <input type="file" name="video_upload" id="video_upload" accept="video/mp4,video/webm,video/ogg,video/quicktime"
+                                    class="block w-full mt-1 text-sm border-gray-300 border-2 p-2 rounded-md bg-white" />
+                                <small class="text-gray-400">MP4, WebM maks. 50MB</small>
+                                @error('video_upload')
+                                    <div>
+                                        <small class="text-red-500"><i>{{ $message }}</i></small>
+                                    </div>
+                                @enderror
                             </div>
-                        @enderror
+
+                            <div>
+                                <label for="video_url" class="text-xs font-semibold text-gray-700">Link Video Instagram / URL</label>
+                                <input type="text" name="video_url" id="video_url" value="{{ old('video_url') }}"
+                                    placeholder="https://www.instagram.com/reel/... atau https://..."
+                                    class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none form-input border-gray-300 border-2 p-2 rounded-md bg-white" />
+                                <small class="text-gray-400">Link Reels/Post Instagram</small>
+                                @error('video_url')
+                                    <div>
+                                        <small class="text-red-500"><i>{{ $message }}</i></small>
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="mt-3 pt-3 border-t border-gray-200">
+                            <label for="yt" class="text-xs font-medium text-gray-600">Youtube ID / Link (Opsional alternatif)</label>
+                            <input type="text" name="yt" id="yt" value="{{ old('yt') }}"
+                                placeholder="mis. opYg9QS3UXI"
+                                class="block w-full mt-1 text-sm focus:border-[#5676ff] focus:outline-none form-input border-gray-300 border-2 p-2 rounded-md bg-white" />
+                        </div>
                     </div>
                     <div class="flex flex-col gap-1 mb-5">
                         <label for="description">Decription</label>

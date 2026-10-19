@@ -51,12 +51,21 @@ class PortofolioController extends Controller
             'image2' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'image3' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'yt' => 'nullable',
+            'video_upload' => 'nullable|mimes:mp4,webm,ogg,mov|max:51200',
+            'video_url' => 'nullable|string',
         ]);
 
         // Proses upload gambar
         $image1Path = $request->file('image1')->store('portofolio-images', 'public');
         $image2Path = $request->hasFile('image2') ? $request->file('image2')->store('portofolio-images', 'public') : null;
         $image3Path = $request->hasFile('image3') ? $request->file('image3')->store('portofolio-images', 'public') : null;
+
+        $videoPath = null;
+        if ($request->hasFile('video_upload')) {
+            $videoPath = $request->file('video_upload')->store('portofolio-video', 'public');
+        } elseif ($request->filled('video_url')) {
+            $videoPath = $request->input('video_url');
+        }
 
         // Simpan data ke database
         $portofolio = Portofolio::create([
@@ -68,6 +77,7 @@ class PortofolioController extends Controller
             'image2' => $image2Path,
             'image3' => $image3Path,
             'yt' => $request->input('yt'),
+            'video' => $videoPath,
         ]);
 
         // Redirect setelah berhasil
@@ -108,6 +118,8 @@ class PortofolioController extends Controller
             'image2' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'image3' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
             'yt' => 'nullable',
+            'video_upload' => 'nullable|mimes:mp4,webm,ogg,mov|max:51200',
+            'video_url' => 'nullable|string',
         ]);
 
         // Temukan portofolio berdasarkan ID
@@ -142,6 +154,24 @@ class PortofolioController extends Controller
             $image3Path = $portofolio->image3;
         }
 
+        // Handle video
+        $videoPath = $portofolio->video;
+        if ($request->boolean('remove_video')) {
+            if ($portofolio->video && ! Str::startsWith($portofolio->video, ['http://', 'https://'])
+                && Storage::disk('public')->exists($portofolio->video)) {
+                Storage::disk('public')->delete($portofolio->video);
+            }
+            $videoPath = null;
+        } elseif ($request->hasFile('video_upload')) {
+            if ($portofolio->video && ! Str::startsWith($portofolio->video, ['http://', 'https://'])
+                && Storage::disk('public')->exists($portofolio->video)) {
+                Storage::disk('public')->delete($portofolio->video);
+            }
+            $videoPath = $request->file('video_upload')->store('portofolio-video', 'public');
+        } elseif ($request->filled('video_url')) {
+            $videoPath = $request->input('video_url');
+        }
+
         // Perbarui data portofolio
         $portofolio->update([
             'id_departement' => $request->input('id_departement'),
@@ -152,6 +182,7 @@ class PortofolioController extends Controller
             'image2' => $image2Path,
             'image3' => $image3Path,
             'yt' => $request->input('yt'),
+            'video' => $videoPath,
         ]);
 
         // Redirect setelah berhasil
@@ -176,6 +207,10 @@ class PortofolioController extends Controller
         }
         if ($portofolio->image3) {
             Storage::disk('public')->delete($portofolio->image3);
+        }
+        if ($portofolio->video && ! Str::startsWith($portofolio->video, ['http://', 'https://'])
+            && Storage::disk('public')->exists($portofolio->video)) {
+            Storage::disk('public')->delete($portofolio->video);
         }
 
         // Hapus data portofolio dari database

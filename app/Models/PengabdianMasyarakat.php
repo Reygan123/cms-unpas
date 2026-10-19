@@ -11,7 +11,7 @@ class PengabdianMasyarakat extends Model
 
     protected $fillable = [
         'judul', 'slug', 'kategori', 'lokasi', 'tanggal', 'deskripsi',
-        'gambar', 'dosen_penanggung_jawab', 'sumber', 'status',
+        'gambar', 'video', 'dosen_penanggung_jawab', 'sumber', 'status',
     ];
 
     protected $casts = [

@@ -361,6 +361,11 @@
                         </a>
                     </li>
                     <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+                        <a class="w-full" href="{{ route('popupBanner.index') }}">
+                            Pop-up Banner
+                        </a>
+                    </li>
+                    <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
                         <a class="w-full" href="{{ route('slider.index') }}">Slider</a>
                     </li>
                     <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
@@ -757,6 +762,11 @@
         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
             <a class="w-full" href="{{ route('sideBanner.index') }}">
                 Banner Samping
+            </a>
+        </li>
+        <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">
+            <a class="w-full" href="{{ route('popupBanner.index') }}">
+                Pop-up Banner
             </a>
         </li>
         <li class="px-2 py-1 transition-colors duration-150 hover:text-gray-800">

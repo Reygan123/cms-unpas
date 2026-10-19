@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
             'status' => 'aktif',
             'yt' => 'https://youtube.com/example'
         ]);
-      
+
         DataValue::create([
             'title1' => 'Mahasiswa',
             'title2' => 'Lulusan',
@@ -58,8 +58,8 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('analytics')->insert([
             'google' => 'ini contoh google analytic',
-            'meta'   => 'Deskripsi website kamu',
-            'chat'   => 'Hallo Minpas, Saya mau info pendaftaran mahasiswa baru untuk tahun ini!',
+            'meta' => 'Deskripsi website kamu',
+            'chat' => 'Hallo Minpas, Saya mau info pendaftaran mahasiswa baru untuk tahun ini!',
         ]);
         DB::table('users')->insert([
             [
@@ -91,6 +91,18 @@ class DatabaseSeeder extends Seeder
                 'role' => 'admin',
                 'email_verified_at' => now(),
                 'password' => Hash::make('password'),
+
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            [
+                'name' => 'Admin',
+                'email' => 'admin@gmail.com',
+                'phone' => '08123456789',
+                'role' => 'admin',
+                'email_verified_at' => now(),
+                'password' => Hash::make('unpassukses'),
 
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -129,6 +141,6 @@ class DatabaseSeeder extends Seeder
             ],
 
         ]);
-       
+
     }
 }

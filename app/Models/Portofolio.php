@@ -15,5 +15,6 @@ class Portofolio extends Model
         'image2',
         'image3',
         'yt',
+        'video',
     ];    
 }

@@ -204,3 +204,12 @@ Route::post('/alumni/perbarui-data', [StudentAffairsAPIController::class, 'store
 Route::get('/pengabdian', [PengabdianAPIController::class, 'getPengabdianAll'])->name('getPengabdianAll');
 Route::get('/pengabdian/{slug}', [PengabdianAPIController::class, 'getPengabdianSlug'])->name('getPengabdianSlug');
 Route::get('/pengabdian-kategori', [PengabdianAPIController::class, 'getPengabdianKategori'])->name('getPengabdianKategori');
+
+// Pop-up Banner
+Route::get('/popup-banner', function () {
+    $banner = \App\Models\PopupBanner::where('is_active', true)->first();
+    return response()->json([
+        'active' => (bool) $banner,
+        'data' => $banner,
+    ]);
+})->name('getPopupBanner');

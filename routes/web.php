@@ -43,8 +43,8 @@ use App\Http\Controllers\StudentActivitiesController;
 use App\Http\Controllers\Setting_menu\SliderController;
 use App\Http\Controllers\Profile\LegalDocumentController;
 use App\Http\Controllers\Setting_menu\IdentityController;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\Setting_menu\SideBannerController;
+use App\Http\Controllers\Setting_menu\PopupBannerController;
 
 use App\Http\Controllers\AcademicDocumentController;
 use App\Http\Controllers\AcademicServicePortalController;
@@ -139,6 +139,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/side_banner', [SideBannerController::class, 'index'])->name('sideBanner.index');
     Route::post('/side_bannerStore', [SideBannerController::class, 'store'])->name('sideBanner.store');
     Route::put('/side_bannerUpdate', [SideBannerController::class, 'update'])->name('sideBanner.update');
+
+    // Pop-up Banner
+    Route::get('/popup_banner', [PopupBannerController::class, 'index'])->name('popupBanner.index');
+    Route::post('/popup_banner/save', [PopupBannerController::class, 'save'])->name('popupBanner.save');
 
     // Sliders
     Route::get('/view_slider', [SliderController::class, 'index'])->name('slider.index');

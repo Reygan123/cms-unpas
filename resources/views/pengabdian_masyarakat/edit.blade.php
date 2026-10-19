@@ -81,6 +81,45 @@
             </div>
         </div>
 
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <div class="md:col-span-2">
+                <span class="block text-sm font-semibold text-gray-800">Media Video (Opsional)</span>
+                <span class="block text-xs text-gray-500">Pilih salah satu: Upload file video (.mp4/.webm) untuk autoplay, ATAU masukkan Link Instagram Reels/Post.</span>
+            </div>
+
+            @if ($pengabdian->video)
+                <div class="md:col-span-2 p-3 bg-white rounded-lg border border-gray-200">
+                    <p class="text-xs font-semibold text-gray-700 mb-2">Video Saat Ini:</p>
+                    @if (Str::startsWith($pengabdian->video, ['http://', 'https://']))
+                        <div class="flex items-center gap-2 text-sm text-blue-600">
+                            <span class="font-medium text-gray-600">Link Video / IG:</span>
+                            <a href="{{ $pengabdian->video }}" target="_blank" class="underline truncate max-w-md">{{ $pengabdian->video }}</a>
+                        </div>
+                    @else
+                        <video src="{{ asset('storage/' . $pengabdian->video) }}" controls class="w-64 max-h-40 rounded-lg bg-black"></video>
+                    @endif
+                    <label class="inline-flex items-center gap-2 mt-2 text-sm text-red-600 cursor-pointer">
+                        <input type="checkbox" name="remove_video" value="1" class="rounded border-gray-300 text-red-600 focus:ring-red-500">
+                        Hapus video ini
+                    </label>
+                </div>
+            @endif
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Ganti File Video (Upload)</label>
+                <input type="file" name="video_upload" accept="video/mp4,video/webm,video/ogg,video/quicktime"
+                    class="block w-full text-sm border-gray-300 rounded-lg focus:border-[#034833] focus:ring focus:ring-[#034833]/20">
+                <p class="mt-1 text-xs text-gray-400">Format: MP4, WebM (Maks. 50MB). Kosongkan jika tidak ingin mengubah video.</p>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Atau Ganti Link Instagram / URL</label>
+                <input type="text" name="video_url" value="{{ old('video_url', Str::startsWith($pengabdian->video, ['http://', 'https://']) ? $pengabdian->video : '') }}"
+                    placeholder="https://www.instagram.com/reel/... atau https://..."
+                    class="block w-full text-sm border-gray-300 rounded-lg focus:border-[#034833] focus:ring focus:ring-[#034833]/20">
+                <p class="mt-1 text-xs text-gray-400">Link Instagram Reels/Post atau link video online.</p>
+            </div>
+        </div>
+
         <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">Dosen Penanggung Jawab</label>
             <div class="space-y-2">
